@@ -1,0 +1,14 @@
+@charset "UTF-8";
+/* import är deprecated */
+.blink_me {
+  animation: blinker 1s linear infinite;
+  color: red;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */
