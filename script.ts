@@ -6,42 +6,54 @@
 
 function getInput() {
 let userInput = (<HTMLInputElement>document.getElementById("name")).value;
-async function stonk(stonk){
+async function stonk(){
     const response = await fetch(`
     https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${userInput}&apikey=NF4D92V4LLY53NLT`);
     const data =await response.json();
-    let infoDiv = document.querySelector('.ticker-box')as HTMLHeadElement;
+    let infoDiv = document.querySelector('.ticker-box')as HTMLDivElement;
     infoDiv.innerHTML = ""
-
-
-      const stock: { ticker: string, matchScore: any} = {
-        ticker:"",
-        matchScore:"",
-      };
-      
+    
 
     let ticker =data.bestMatches;
     let matchScore =data.bestMatches;
-
-    for (const key in matchScore) {
-        const e = matchScore[key]["9. matchScore"];
-        stock.matchScore=e;
-       
-    }
-    for (const key in ticker) {
-        
-            const element = ticker[key]["1. symbol"];
-            console.log(element);
-            stock.ticker=element;
-            infoDiv.innerHTML=element;
-          
-            /* infoDiv.innerHTML= `${infoDiv.innerHTML} ${element}`; */
-    }
+    let tickerNames=data.bestMatches;
+   
     
 
+    for (const key in matchScore) {
+      let contentDiv= document.createElement("div") as HTMLDivElement;
+        contentDiv.className="stock-div";
+        contentDiv.innerHTML="";
+        const header = ticker[key]["1. symbol"]
+        const matchE = matchScore[key]["9. matchScore"];
+        const tickerName= tickerNames[key]["2. name"]
+        //
+        if (matchE>0.7) {
+          contentDiv.innerHTML=`<button class="headers" onclick="getInfo()"> <br>${header}</button>${tickerName}<br> ${matchE*100}% match `;
+          infoDiv.append(contentDiv);
+        }/*  else if (matchE===0){
+          contentDiv.innerHTML=`<h4>No Match on that search , try again</h4>`;
+        } */
+    }
 }
-stonk(userInput);
+stonk();
+}
 
+
+
+
+/* 
+let headerPress=document.querySelector(".headers");
+ headerPress?.addEventListener("click", getInput); */
+function getInfo() {
+let userPress = (<HTMLInputElement>document.querySelector(".headers")).innerText;
+  async function stonkTwo(){
+    const response = await fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${userPress}&apikey=NF4D92V4LLY53NLT`);
+    const data =await response.json();
+    console.log(data);
+
+  }
+  stonkTwo();
 }
 
 

@@ -10,5 +10,13 @@
     opacity: 0;
   }
 }
+.stock-div {
+  background-color: aquamarine;
+  border: 2px solid black;
+}
+
+.headers {
+  color: orangered;
+}
 
 /*# sourceMappingURL=main.css.map */

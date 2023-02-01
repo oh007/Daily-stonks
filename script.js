@@ -12,33 +12,48 @@ let element = document.querySelector("#btn-search");
 element === null || element === void 0 ? void 0 : element.addEventListener("click", getInput);
 function getInput() {
     let userInput = document.getElementById("name").value;
-    function stonk(stonk) {
+    function stonk() {
         return __awaiter(this, void 0, void 0, function* () {
             const response = yield fetch(`
     https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${userInput}&apikey=NF4D92V4LLY53NLT`);
             const data = yield response.json();
             let infoDiv = document.querySelector('.ticker-box');
             infoDiv.innerHTML = "";
-            const stock = {
-                ticker: "",
-                matchScore: "",
-            };
             let ticker = data.bestMatches;
             let matchScore = data.bestMatches;
+            let tickerNames = data.bestMatches;
             for (const key in matchScore) {
-                const e = matchScore[key]["9. matchScore"];
-                stock.matchScore = e;
-            }
-            for (const key in ticker) {
-                const element = ticker[key]["1. symbol"];
-                console.log(element);
-                stock.ticker = element;
-                infoDiv.innerHTML = element;
-                /* infoDiv.innerHTML= `${infoDiv.innerHTML} ${element}`; */
+                let contentDiv = document.createElement("div");
+                contentDiv.className = "stock-div";
+                contentDiv.innerHTML = "";
+                const header = ticker[key]["1. symbol"];
+                const matchE = matchScore[key]["9. matchScore"];
+                const tickerName = tickerNames[key]["2. name"];
+                //
+                if (matchE > 0.7) {
+                    contentDiv.innerHTML = `<button class="headers" onclick="getInfo()"> <br>${header}</button>${tickerName}<br> ${matchE * 100}% match `;
+                    infoDiv.append(contentDiv);
+                } /*  else if (matchE===0){
+                  contentDiv.innerHTML=`<h4>No Match on that search , try again</h4>`;
+                } */
             }
         });
     }
-    stonk(userInput);
+    stonk();
+}
+/*
+let headerPress=document.querySelector(".headers");
+ headerPress?.addEventListener("click", getInput); */
+function getInfo() {
+    let userPress = document.querySelector(".headers").innerText;
+    function stonkTwo() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const response = yield fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${userPress}&apikey=NF4D92V4LLY53NLT`);
+            const data = yield response.json();
+            console.log(data);
+        });
+    }
+    stonkTwo();
 }
 //To-do 
 /* Bygga ut funktionen för att hämta ut alla sök resultat , ex med for-in loop
