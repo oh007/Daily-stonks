@@ -8,29 +8,50 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    <nav>
-<h2 class="blink_me">Daily stonks</h2>
-    </nav>
-    <main class="main-content">
+<section class="section-main">
+        <nav>
+            <video controls autoplay muted loop width="100%" height="100px">
+                <source src="/images/stock-video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+           <div>
+            <h2 class="blink_me">Daily stonks</h2>
+           </div>
+        </nav>
+            <main class="main-content">
+        
+                <div class="search-box">
+                    <label for="name">Search for company by ticker name</label>
+                     <input type="text" id="name" name="name">
+                     <button type="button" id="btn-search">Search</button>
+        
+                </div>
+        
+                <div class="ticker-box">
+        
+                </div>
+        
+                <div class="ticker-info">
+        
+                </div>
+            </main>
 
-        <div class="search-box">
-            <label for="name">Search for company by ticker name</label>
-             <input type="text" id="name" name="name">
-             <button type="button" id="btn-search">Search</button>
-
-        </div>
-
-        <div class="ticker-box">
-
-        </div>
-
-        <div class="market-info">
-
-        </div>
-    </main>
-   <footer>
- <h4>made by Olof Hag</h4>
-   </footer>
+            <section class="news-section">
+                <div class="news">
+                    <h4>Get the latest new , pick a topic: </h4>
+                    <ol>
+                        <li class="li-news" onclick="getNews()">technology</li>
+                        <li class="li-news" onclick="getNews()">ipo</li>
+                        <li class="li-news" onclick="getNews()">blockchain</li>
+                        <li class="li-news" onclick="getNews()">finance</li>
+                    </ol>
+                </div>
+            </section>
+           <footer>
+         <h4>made by Olof Hag</h4>
+           </footer>
+            
+</section>
     
    <script src="script.js"></script>
 </body>
