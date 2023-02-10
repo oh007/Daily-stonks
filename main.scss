@@ -14,7 +14,9 @@ color: $textcolor;
 }
 
 /* Desktop styling */
-
+display-none{
+  display: none;
+}
 nav{
   display: flex;
   flex-direction: column;
@@ -152,6 +154,7 @@ nav{
   .header-news{
     color: $textcolor;
   }
+  
 }
 input{
   margin-bottom: 10px;
@@ -227,6 +230,7 @@ video {
   object-fit: fill;
 }
 
+
 #myBtn {
   display: none; /* Hidden by default */
   position: fixed; /* Fixed/sticky position */
@@ -246,6 +250,8 @@ video {
 #myBtn:hover {
   background-color: $hover-color; /* Add a dark-grey background on hover */
 }
+
+/* Media Query for Phone */
 @media only screen and (max-width: 600px) {
 
   div{
@@ -297,6 +303,15 @@ video {
     text-align:center;
   }
   /* Search form end */
+
+  .news-img{
+    width: 100%;
+  }
+  .article-div{
+    padding: 20px;
+    margin-top: 10%;
+    border: solid 2px red;
+  }
 .li-news{
     color: $textcolor;
     margin-bottom: 10px;
@@ -333,6 +348,10 @@ video {
 
   .search-box{
     margin: auto;
+    .button-31{
+      border-radius: 10px;
+       width: 200px;
+    }
   }
   .art-div{
     border: 2px solid white;
