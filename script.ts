@@ -1,4 +1,6 @@
  let key='NF4D92V4LLY53NLT';
+
+ let infoDiv = document.querySelector('.display-none')as HTMLDivElement;
  
  let element=document.querySelector(".button-31") as HTMLButtonElement;
  element.addEventListener("click", getInput);
@@ -9,7 +11,7 @@ async function stonk(){
     const response = await fetch(`
     https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${userInput}&apikey=${key}`);
     const data =await response.json();
-    let infoDiv = document.querySelector('.ticker-box')as HTMLDivElement;
+    infoDiv.className=".show-ticker-box";
     infoDiv.innerHTML = ""
     
     let ticker =data.bestMatches;
@@ -38,10 +40,10 @@ let headerClick= document.getElementById("headers") as HTMLButtonElement;
 headerClick?.addEventListener("click",getInfo);
 
 /* Function 2 get closing numbers */
-function getInfo() {
-  console.log("hej");
-  let infoDiv = document.querySelector('.ticker-box')as HTMLDivElement;
+function getInfo() {  
+  infoDiv.className=".show-ticker-box";
   let userPress = (<HTMLElement>document.getElementById("headers")).innerText;
+  infoDiv.innerHTML = ""
   async function stonkTwo(){
     const response = await fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${userPress}&apikey=${key}`);
     const data =await response.json();

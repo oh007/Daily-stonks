@@ -9,6 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 let key = 'NF4D92V4LLY53NLT';
+let infoDiv = document.querySelector('.display-none');
 let element = document.querySelector(".button-31");
 element.addEventListener("click", getInput);
 /* Function 2 get stock that user search on */
@@ -19,7 +20,7 @@ function getInput() {
             const response = yield fetch(`
     https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${userInput}&apikey=${key}`);
             const data = yield response.json();
-            let infoDiv = document.querySelector('.ticker-box');
+            infoDiv.className = ".show-ticker-box";
             infoDiv.innerHTML = "";
             let ticker = data.bestMatches;
             let matchScore = data.bestMatches;
@@ -45,9 +46,9 @@ let headerClick = document.getElementById("headers");
 headerClick === null || headerClick === void 0 ? void 0 : headerClick.addEventListener("click", getInfo);
 /* Function 2 get closing numbers */
 function getInfo() {
-    console.log("hej");
-    let infoDiv = document.querySelector('.ticker-box');
+    infoDiv.className = ".show-ticker-box";
     let userPress = document.getElementById("headers").innerText;
+    infoDiv.innerHTML = "";
     function stonkTwo() {
         return __awaiter(this, void 0, void 0, function* () {
             const response = yield fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${userPress}&apikey=${key}`);
