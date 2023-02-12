@@ -60,7 +60,7 @@ function getInfo() {
 }
 let liBtn= document.querySelector('.news-pick') as HTMLSelectElement;
 liBtn?.addEventListener("change", getNews);
-let newsDiv = document.querySelector('.news-section')as HTMLDivElement;
+let newsDiv = document.querySelector('.user-news')as HTMLDivElement;
 /* Gets news based on users pick of topic */
 function getNews() {
 
@@ -68,7 +68,6 @@ function getNews() {
   async function news(){
     const response = await fetch(`https://www.alphavantage.co/query?function=NEWS_SENTIMENT&topics=${userNews}&limit=50&apikey=${key}`);
     const data =await response.json();
-    console.log(data);
     newsDiv.innerHTML="";
  for (let i = 0; i < 51; i++) {
   let articleDiv = document.createElement('div');

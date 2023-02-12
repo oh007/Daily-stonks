@@ -7,12 +7,16 @@ h1,h2,h4{
   font-family: $font-fam;
   font-weight: $header;
 }
-p,a,li{
+p,a,li,label{
 font-family: $font-fam;
 font-weight: $regular;
 color: $textcolor;
 }
-
+select{
+  font-family: $font-fam;
+  font-weight: $regular;
+  color: #1a1a1a;
+}
 /* Desktop styling */
 display-none{
   display: none;
@@ -35,6 +39,7 @@ video{
 
 
 .button-31 {
+  margin: 10px;
   background-color: #222;
   border-radius: 4px;
   border-style: none;
@@ -46,12 +51,8 @@ video{
   font-size: 16px;
   font-weight: 700;
   line-height: 1.5;
-  margin: 0;
-  max-width: none;
   min-height: 44px;
   min-width: 10px;
-  outline: none;
-  overflow: hidden;
   padding: 9px 20px 8px;
   position: relative;
   text-align: center;
@@ -65,6 +66,7 @@ video{
 .button-31:hover,
 .button-31:focus {
   opacity: .75;
+  background-color: #4b4c4e;
 }
 /* Search form */
 #name{
@@ -85,7 +87,6 @@ video{
     border-bottom-right-radius: 0;
 }
 .search-submit{
-/* this class is for submit button, if in your code its different, just substitute the class name '.search-submit' */
     background-color:#1a1a1a;
     color: #ffffff;
     font-weight: 700;
