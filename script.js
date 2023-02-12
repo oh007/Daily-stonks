@@ -33,7 +33,7 @@ function getInput() {
                 const tickerName = tickerNames[key]["2. name"];
                 //
                 if (matchE > 0.7) {
-                    contentDiv.innerHTML = `<button id="headers"> <br>${header}</button>${tickerName}<br> ${matchE * 100}% match `;
+                    contentDiv.innerHTML = `<button id="headers" onclick="getInfo()"> <br>${header}</button>${tickerName}<br> ${matchE * 100}% match `;
                     infoDiv.append(contentDiv);
                 }
             }
@@ -41,13 +41,13 @@ function getInput() {
     }
     stonk();
 }
-let headerClick = document.querySelector('#headers');
+let headerClick = document.getElementById("headers");
 headerClick === null || headerClick === void 0 ? void 0 : headerClick.addEventListener("click", getInfo);
 /* Function 2 get closing numbers */
 function getInfo() {
-    let infoDiv = document.querySelector('.ticker-info');
-    infoDiv.innerHTML = "";
-    let userPress = document.querySelector(".headers").innerText;
+    console.log("hej");
+    let infoDiv = document.querySelector('.ticker-box');
+    let userPress = document.getElementById("headers").innerText;
     function stonkTwo() {
         return __awaiter(this, void 0, void 0, function* () {
             const response = yield fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${userPress}&apikey=${key}`);
@@ -57,7 +57,7 @@ function getInfo() {
     <br> 
     <div class="cl-div">
     <h2>Closing Price for ${userPress}</h2>
-    <p>2023-01-31</p>
+    <p>2023-02-09</p>
     <h4>
     ${yesterday}
     </h4>
@@ -67,10 +67,12 @@ function getInfo() {
     ;
     stonkTwo();
 }
+let liBtn = document.querySelector('.news-pick');
+liBtn === null || liBtn === void 0 ? void 0 : liBtn.addEventListener("change", getNews);
 let newsDiv = document.querySelector('.news-section');
 /* Gets news based on users pick of topic */
 function getNews() {
-    let userNews = document.querySelector(".li-news").innerText;
+    let userNews = document.querySelector(".news-pick").innerText;
     function news() {
         return __awaiter(this, void 0, void 0, function* () {
             const response = yield fetch(`https://www.alphavantage.co/query?function=NEWS_SENTIMENT&topics=${userNews}&limit=50&apikey=${key}`);

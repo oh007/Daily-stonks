@@ -25,7 +25,7 @@ async function stonk(){
         const tickerName= tickerNames[key]["2. name"]
         //
         if (matchE>0.7) {
-          contentDiv.innerHTML=`<button id="headers"> <br>${header}</button>${tickerName}<br> ${matchE*100}% match `;
+          contentDiv.innerHTML=`<button id="headers" onclick="getInfo()"> <br>${header}</button>${tickerName}<br> ${matchE*100}% match `;
           infoDiv.append(contentDiv);
         }
     }
@@ -33,15 +33,15 @@ async function stonk(){
 stonk();
 }
 
-let headerClick= document.querySelector('#headers') as HTMLButtonElement;
+let headerClick= document.getElementById("headers") as HTMLButtonElement;
 
-headerClick?.addEventListener("click", getInfo);
+headerClick?.addEventListener("click",getInfo);
 
 /* Function 2 get closing numbers */
 function getInfo() {
-  let infoDiv = document.querySelector('.ticker-info')as HTMLDivElement;
-  infoDiv.innerHTML="";
-  let userPress = (<HTMLInputElement>document.querySelector(".headers")).innerText;
+  console.log("hej");
+  let infoDiv = document.querySelector('.ticker-box')as HTMLDivElement;
+  let userPress = (<HTMLElement>document.getElementById("headers")).innerText;
   async function stonkTwo(){
     const response = await fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${userPress}&apikey=${key}`);
     const data =await response.json();
@@ -50,7 +50,7 @@ function getInfo() {
     <br> 
     <div class="cl-div">
     <h2>Closing Price for ${userPress}</h2>
-    <p>2023-01-31</p>
+    <p>2023-02-09</p>
     <h4>
     ${yesterday}
     </h4>
@@ -58,12 +58,13 @@ function getInfo() {
   };
   stonkTwo();
 }
-
+let liBtn= document.querySelector('.news-pick') as HTMLSelectElement;
+liBtn?.addEventListener("change", getNews);
 let newsDiv = document.querySelector('.news-section')as HTMLDivElement;
 /* Gets news based on users pick of topic */
 function getNews() {
 
-  let userNews = (<HTMLInputElement>document.querySelector(".li-news")).innerText;
+  let userNews = (<HTMLElement>document.querySelector(".news-pick")).innerText;
   async function news(){
     const response = await fetch(`https://www.alphavantage.co/query?function=NEWS_SENTIMENT&topics=${userNews}&limit=50&apikey=${key}`);
     const data =await response.json();
