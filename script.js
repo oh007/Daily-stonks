@@ -10,7 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 let key = 'NF4D92V4LLY53NLT';
 let infoDiv = document.querySelector('.display-none');
-let element = document.querySelector(".button-31");
+let element = document.querySelector(".button-search");
 element.addEventListener("click", getInput);
 /* Function 2 get stock that user search on */
 function getInput() {
@@ -22,22 +22,27 @@ function getInput() {
             const data = yield response.json();
             infoDiv.className = "show-ticker-box";
             infoDiv.innerHTML = "";
-            let ticker = data.bestMatches;
-            let matchScore = data.bestMatches;
-            let tickerNames = data.bestMatches;
-            for (const key in matchScore) {
-                let contentDiv = document.createElement("div");
-                contentDiv.className = "stock-div";
-                contentDiv.innerHTML = "";
-                const header = ticker[key]["1. symbol"];
-                const matchE = matchScore[key]["9. matchScore"];
-                const tickerName = tickerNames[key]["2. name"];
-                //
-                if (matchE > 0.7) {
-                    let headerClick = document.getElementById("headers");
-                    headerClick === null || headerClick === void 0 ? void 0 : headerClick.addEventListener("click", getInfo);
-                    contentDiv.innerHTML = `<button id="headers"> <br>${header}</button>${tickerName}<br> ${matchE * 100}% match `;
-                    infoDiv.append(contentDiv);
+            if (data.bestMatches == 0) {
+                infoDiv.innerHTML = `<h4>Sorry no matches on that search :/</h4>`;
+            }
+            else {
+                let ticker = data.bestMatches;
+                let matchScore = data.bestMatches;
+                let tickerNames = data.bestMatches;
+                for (const key in matchScore) {
+                    let contentDiv = document.createElement("div");
+                    contentDiv.className = "stock-div";
+                    contentDiv.innerHTML = "";
+                    const header = ticker[key]["1. symbol"];
+                    const matchE = matchScore[key]["9. matchScore"];
+                    const tickerName = tickerNames[key]["2. name"];
+                    //
+                    if (matchE > 0.7) {
+                        let headerClick = document.getElementById("headers");
+                        headerClick === null || headerClick === void 0 ? void 0 : headerClick.addEventListener("click", getInfo);
+                        contentDiv.innerHTML = `<button id="headers"> <br>${header}</button>${tickerName}<br> ${matchE * 100}% match `;
+                        infoDiv.append(contentDiv);
+                    }
                 }
             }
         });

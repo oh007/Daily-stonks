@@ -91,7 +91,7 @@ input{
   }
 
 
-  .button-31 {
+  .button-search{
     margin: 10px;
     background-color: #222;
     border-radius: 4px;
@@ -114,8 +114,8 @@ input{
     touch-action: manipulation;
   }
   
-  .button-31:hover,
-  .button-31:focus {
+  .button-search:hover,
+  .button-search:focus {
     opacity: .75;
     background-color: #4b4c4e;
   }
@@ -446,7 +446,7 @@ footer{
       box-shadow: none;
       flex-grow: 1;
     }
-    .button-31{
+    .button-search{
       border-radius: 10px;
        width: 200px;
     }

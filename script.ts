@@ -1,8 +1,9 @@
- let key='NF4D92V4LLY53NLT';
-
+/* -----------------Insert your API:key here---------------------- */
+let key='';
+/* -----------------Insert your API:key here---------------------- */
  let infoDiv = document.querySelector('.display-none')as HTMLDivElement;
  
- let element=document.querySelector(".button-31") as HTMLButtonElement;
+ let element=document.querySelector(".button-search") as HTMLButtonElement;
  element.addEventListener("click", getInput);
 /* Function 2 get stock that user search on */
 function getInput() {
@@ -13,7 +14,13 @@ async function stonk(){
     const data =await response.json();
     infoDiv.className="show-ticker-box";
     infoDiv.innerHTML = ""
-    
+
+    if(data.bestMatches==0){
+      infoDiv.innerHTML=`<h4>Sorry no matches on that search :/</h4>`
+    }
+  else{
+
+   
     let ticker =data.bestMatches;
     let matchScore =data.bestMatches;
     let tickerNames=data.bestMatches;
@@ -22,9 +29,9 @@ async function stonk(){
       let contentDiv= document.createElement("div") as HTMLDivElement;
         contentDiv.className="stock-div";
         contentDiv.innerHTML="";
-        const header = ticker[key]["1. symbol"]
-        const matchE = matchScore[key]["9. matchScore"];
-        const tickerName= tickerNames[key]["2. name"]
+        const header:string = ticker[key]["1. symbol"]
+        const matchE:number = matchScore[key]["9. matchScore"];
+        const tickerName:string= tickerNames[key]["2. name"]
         //
         if (matchE>0.7) {
           let headerClick= document.getElementById("headers") as HTMLButtonElement;
@@ -33,6 +40,7 @@ async function stonk(){
           infoDiv.append(contentDiv);
         }
     }
+  }
 }
 stonk();
 }
@@ -74,10 +82,10 @@ function getNews() {
  for (let i = 0; i < 51; i++) {
   let articleDiv = document.createElement('div');
   articleDiv.className="article-div";
-  let newsImg = data['feed'][`${i}`]['banner_image'];
-  let newsSrc=data['feed'][`${i}`]['source'];
-  let sum=data['feed'][`${i}`]['summary'];
-  let title=data['feed'][`${i}`]['title'];
+  let newsImg:string = data['feed'][`${i}`]['banner_image'];
+  let newsSrc:string=data['feed'][`${i}`]['source'];
+  let sum:string=data['feed'][`${i}`]['summary'];
+  let title:string=data['feed'][`${i}`]['title'];
 
   articleDiv.innerHTML=`<img src="${newsImg}" class="news-img" alt="noice">
   <p class="news-para">Source:${newsSrc}</p> 

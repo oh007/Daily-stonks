@@ -95,7 +95,7 @@ input {
   box-shadow: none;
   flex-grow: 1;
 }
-.search-box .button-31 {
+.search-box .button-search {
   margin: 10px;
   background-color: #222;
   border-radius: 4px;
@@ -117,8 +117,8 @@ input {
   -webkit-user-select: none;
   touch-action: manipulation;
 }
-.search-box .button-31:hover,
-.search-box .button-31:focus {
+.search-box .button-search:hover,
+.search-box .button-search:focus {
   opacity: 0.75;
   background-color: #4b4c4e;
 }
@@ -427,7 +427,7 @@ footer {
     box-shadow: none;
     flex-grow: 1;
   }
-  .search-box .button-31 {
+  .search-box .button-search {
     border-radius: 10px;
     width: 200px;
   }
