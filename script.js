@@ -8,46 +8,54 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+/* -----------------Insert your API:key here---------------------- */
 let key = 'NF4D92V4LLY53NLT';
+/* -----------------Insert your API:key here---------------------- */
 let infoDiv = document.querySelector('.display-none');
 let element = document.querySelector(".button-search");
 element.addEventListener("click", getInput);
 /* Function 2 get stock that user search on */
 function getInput() {
     let userInput = document.getElementById("name").value;
-    function stonk() {
-        return __awaiter(this, void 0, void 0, function* () {
-            const response = yield fetch(`
+    if (userInput === "" || null || undefined) {
+        infoDiv.innerHTML = `<h4>Search empty try again...</h4>`;
+    }
+    else {
+        function stonk() {
+            return __awaiter(this, void 0, void 0, function* () {
+                const response = yield fetch(`
     https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${userInput}&apikey=${key}`);
-            const data = yield response.json();
-            infoDiv.className = "show-ticker-box";
-            infoDiv.innerHTML = "";
-            if (data.bestMatches == 0) {
-                infoDiv.innerHTML = `<h4>Sorry no matches on that search :/</h4>`;
-            }
-            else {
-                let ticker = data.bestMatches;
-                let matchScore = data.bestMatches;
-                let tickerNames = data.bestMatches;
-                for (const key in matchScore) {
-                    let contentDiv = document.createElement("div");
-                    contentDiv.className = "stock-div";
-                    contentDiv.innerHTML = "";
-                    const header = ticker[key]["1. symbol"];
-                    const matchE = matchScore[key]["9. matchScore"];
-                    const tickerName = tickerNames[key]["2. name"];
-                    //
-                    if (matchE > 0.7) {
-                        let headerClick = document.getElementById("headers");
-                        headerClick === null || headerClick === void 0 ? void 0 : headerClick.addEventListener("click", getInfo);
-                        contentDiv.innerHTML = `<button id="headers"> <br>${header}</button>${tickerName}<br> ${matchE * 100}% match `;
-                        infoDiv.append(contentDiv);
+                const data = yield response.json();
+                infoDiv.className = "show-ticker-box";
+                infoDiv.innerHTML = "";
+                if (data.bestMatches === 0) {
+                    infoDiv.innerHTML = `<h4>Sorry no matches on that search :/</h4>`;
+                }
+                else {
+                    let ticker = data.bestMatches;
+                    let matchScore = data.bestMatches;
+                    let tickerNames = data.bestMatches;
+                    for (const key in matchScore) {
+                        let contentDiv = document.createElement("div");
+                        contentDiv.className = "stock-div";
+                        contentDiv.innerHTML = "";
+                        const header = ticker[key]["1. symbol"];
+                        const matchE = matchScore[key]["9. matchScore"];
+                        const tickerName = tickerNames[key]["2. name"];
+                        //
+                        if (matchE > 0.7) {
+                            let headerClick = document.getElementById("headers");
+                            headerClick === null || headerClick === void 0 ? void 0 : headerClick.addEventListener("click", getInfo);
+                            contentDiv.innerHTML = `<button id="headers"> <br>${header}</button>${tickerName}<br> ${matchE * 100}% match `;
+                            infoDiv.append(contentDiv);
+                        }
+                        /* TO-DO bygga en else if som tar noll resultat och skriver ut försök igen */
                     }
                 }
-            }
-        });
+            });
+        }
+        stonk();
     }
-    stonk();
 }
 /* Function 2 get closing numbers */
 function getInfo() {

@@ -1,5 +1,5 @@
 /* -----------------Insert your API:key here---------------------- */
-let key='';
+let key='NF4D92V4LLY53NLT';
 /* -----------------Insert your API:key here---------------------- */
  let infoDiv = document.querySelector('.display-none')as HTMLDivElement;
  
@@ -7,7 +7,12 @@ let key='';
  element.addEventListener("click", getInput);
 /* Function 2 get stock that user search on */
 function getInput() {
+
 let userInput = (<HTMLInputElement>document.getElementById("name")).value;
+if(userInput===""||null||undefined){
+  infoDiv.innerHTML=`<h4>Search empty try again...</h4>`;
+}
+else{
 async function stonk(){
     const response = await fetch(`
     https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${userInput}&apikey=${key}`);
@@ -15,7 +20,7 @@ async function stonk(){
     infoDiv.className="show-ticker-box";
     infoDiv.innerHTML = ""
 
-    if(data.bestMatches==0){
+    if(data.bestMatches===0){
       infoDiv.innerHTML=`<h4>Sorry no matches on that search :/</h4>`
     }
   else{
@@ -39,10 +44,13 @@ async function stonk(){
           contentDiv.innerHTML=`<button id="headers"> <br>${header}</button>${tickerName}<br> ${matchE*100}% match `;
           infoDiv.append(contentDiv);
         }
+        /* TO-DO bygga en else if som tar noll resultat och skriver ut försök igen */
     }
   }
 }
 stonk();
+}
+
 }
 
 
