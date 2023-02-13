@@ -2,10 +2,13 @@
 @use 'variables'as *;
 body{
   background-color: $bg-color;
+    padding: 0;
+    margin: 0;
 }
 h1,h2,h4{
   font-family: $font-fam;
   font-weight: $header;
+  color: $textcolor;
 }
 p,a,li,label{
 font-family: $font-fam;
@@ -39,43 +42,42 @@ video{
  -moz-border-radius: 20px;
  -ms-border-radius: 20px;
  -o-border-radius: 20px;
+ width: auto;
+ height: auto;
+}
+nav{
+  margin: auto;
+}
+input{
+  margin-bottom: 10px;
 }
 
+/* Styling Desktop */
 
-.button-31 {
-  margin: 10px;
-  background-color: #222;
-  border-radius: 4px;
-  border-style: none;
-  box-sizing: border-box;
-  color: #fff;
-  cursor: pointer;
-  display: inline-block;
-  font-family: "Farfetch Basis","Helvetica Neue",Arial,sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 1.5;
-  min-height: 44px;
-  min-width: 10px;
-  padding: 9px 20px 8px;
-  position: relative;
-  text-align: center;
-  text-transform: none;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  width: 100%;
+
+.blink_me {
+  animation: blinker 1s linear infinite;
+  color: $textcolor;
+  font-size: xxx-large;
 }
 
-.button-31:hover,
-.button-31:focus {
-  opacity: .75;
-  background-color: #4b4c4e;
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
 }
-/* Search form */
-#name{
+
+/* Search stock */
+
+.search-box{
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  #name{
     padding: 10px 15px;
-    min-width: 55%;
+    width: 50%;
     font-size: 1rem;
     line-height: 1.5em;
     color: #373D41;
@@ -86,37 +88,123 @@ video{
     -webkit-box-shadow: none;
     box-shadow: none;
     flex-grow: 1;
-}
-.search-submit{
-    background-color:#1a1a1a;
-    color: #ffffff;
-    font-weight: 700;
-    text-decoration: none;
-    white-space: normal;
-    -webkit-transition: none;
-    transition: none;
+  }
+
+
+  .button-31 {
+    margin: 10px;
+    background-color: #222;
+    border-radius: 4px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #fff;
     cursor: pointer;
-    outline: 0;
-    padding: 14px 24px 13px;
-    font-size: 1rem;
-    line-height: 1.25rem;
-    border-radius: 6px;
-    border-width: 0;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+    display: inline-block;
+    font-family: $font-fam;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.5;
+    width: 25%;
+    padding: 9px 20px 8px;
+    position: relative;
+    text-align: center;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+  
+  .button-31:hover,
+  .button-31:focus {
+    opacity: .75;
+    background-color: #4b4c4e;
+  }
+  /* Search form */
+  
+  .search-submit{
+      background-color:#1a1a1a;
+      color: #ffffff;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: normal;
+      -webkit-transition: none;
+      transition: none;
+      cursor: pointer;
+      outline: 0;
+      padding: 14px 24px 13px;
+      font-size: 1rem;
+      line-height: 1.25rem;
+      border-radius: 6px;
+      border-width: 0;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+  }
+  .search-form .input-group{
+    text-align:center;
+  }
+
 }
-.search-form .input-group{
-  text-align:center;
+/* Search stock end */
+
+/* News section start------------------ */
+.news-section{
+
+.news-form{
+  padding-bottom: 20px;
+
+  .news-pick{
+    width: 30%;
+    font-size: x-large;
+  }
 }
-/* Search form end */
+
+.user-news{
+display: flex;
+flex-direction: row;
+overflow: scroll;
+gap: 5%;
+
+  .article-div{
+    width: 80%;
+    border: solid $textcolor 2px;
+    padding: 20px;
+    margin-bottom: 20px;
+    .news-img{
+      margin-top: 20px;
+      width: 300px;
+      height: 250px;
+    }
+    .news-para{
+
+     color: $textcolor;
+     font-weight:$regular;
+    }
+    .news-title{
+      letter-spacing: 1px;
+      color: $textcolor;
+      font-weight: $header;
+    }
+    .news-sum-header{
+    color: $textcolor;
+    font-weight: bold;
+    }
+    .news-sum{
+      color: $textcolor;
+      font-weight: 100;
+      letter-spacing: 1px;
+    }
+    }
+}
+}
+
+/* News section end------------------- */
+
+
 .main-content{
 margin: 20px;
   text-align: center;
   color: $textcolor;
 
-    .search-box{
-
-    }
     .ticker-box{
 padding: 20px;
 margin-bottom: 10px;
@@ -126,44 +214,9 @@ margin-bottom: 10px;
       padding: 20px;
     }
 }
-
-.li-news{
-  color: $textcolor;
-  margin-bottom: 10px;
-}
-.li-news:hover{
-  background-color: $hover-color;
-}
 .section-main{
   display: flex;
   flex-direction: column;
-}
-nav{
-  margin: auto;
-}
-
-.section-news{
-  .news{
-    margin: 40px;
-    border: solid white 2px;
-  }
-  .news-section{
-    display: flex;
-    max-width: 100%;
-    justify-content: left;
-    overflow: scroll;
-  }
-  .header-news{
-    color: $textcolor;
-  }
-  
-}
-input{
-  margin-bottom: 10px;
-}
-
-.search-box{
-  margin: auto;
 }
 .art-div{
   width: 80%;
@@ -209,17 +262,6 @@ footer{
   }
 }
 
-.blink_me {
-    animation: blinker 1s linear infinite;
-    color: $textcolor;
-  }
-  
-  @keyframes blinker {
-    50% {
-      opacity: 0;
-    }
-  }
-
   .stock-div{
     color: black;
     background-color: $textcolor;
@@ -250,12 +292,44 @@ video {
 }
 
 #myBtn:hover {
-  background-color: $hover-color; /* Add a dark-grey background on hover */
+  background-color: $hover-color;
 }
 
-/* Media Query for Phone */
-@media only screen and (max-width: 600px) {
 
+.back-to-top{
+
+  display: flex;
+  margin: 40px;
+  justify-content: center;
+  
+    .top {
+      text-decoration: none;
+      padding: 10px;
+      font-family: sans-serif;
+      color: #fff;
+      background: #000;
+      border-radius: 100px;
+    }
+    .top:hover{
+      background-color: #4b4c4e;
+    }
+  }
+
+footer{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #222222;
+}
+
+/* ------------------------------------------------------------------- */
+
+/* Media Query for Phone */
+
+
+/* ------------------------------------------------------------------- */
+@media only screen and (max-width: 600px) {
   div{
     text-align: center;
   }
@@ -264,21 +338,6 @@ video {
     height: auto;
   }
 /* Search form */
-#name{
-  /* this class is for input field, if in your code its different, just substitute the class name '.search-field' */
-      padding: 10px 15px;
-      min-width: 60%;
-      font-size: 1rem;
-      line-height: 1.5em;
-      color: #373D41;
-      background-color: #FFF;
-      background-clip: padding-box;
-      border: 1px solid #C5C5C7;
-      border-radius: 6px;
-      -webkit-box-shadow: none;
-      box-shadow: none;
-      flex-grow: 1;
-  }
   .search-submit{
   /* this class is for submit button, if in your code its different, just substitute the class name '.search-submit' */
       background-color:#1a1a1a;
@@ -308,13 +367,6 @@ video {
     margin-top: 10%;
     border: solid 2px red;
   }
-.li-news{
-    color: $textcolor;
-    margin-bottom: 10px;
-  }
-  .li-news:hover{
-    background-color: $hover-color;
-  }
   .section-main{
     display: flex;
     flex-direction: column;
@@ -323,25 +375,32 @@ video {
     margin: auto;
   }
   .main-content{
+    width: 100%;
     margin: auto;
     text-align: center;
     color: $textcolor;
-   
   }
   .hidden{
     display: none;
   }
   .show-ticker-box{
     display: block;
- background-color: #222;
- border: #979797 solid 2px;
+    background-color: #222;
+    border: #979797 solid 2px;
+    margin-top: 20px;
   }
   .stock-div{
     padding: 10px;
-    border-radius: 6px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background: rgba(255, 255, 255, 0.16);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: $textcolor;
         #headers{
          background-color: #222;
          color: aliceblue;
@@ -351,27 +410,61 @@ video {
         }
 
   }
-  .section-news{
-
-    .news-section{
-      display: block;
-      
+  .news-section{
+    .news-form{
+      .news-pick{
+        width: 50%;
+        font-size: larger;
+      }
+  
     }
-    .header-news{
-      color: $textcolor;
+    .user-news{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+     gap: 10px;
     }
   }
-  input{
-    margin-bottom: 10px;
-  }
+  
+ 
 
   .search-box{
+    display: flex;
     margin: auto;
+    #name{
+      text-align: center;
+      padding: 10px 15px;
+      width: 80%;
+      font-size: 1rem;
+      line-height: 1.5em;
+      color: #373D41;
+      background-color: #FFF;
+      background-clip: padding-box;
+      border: 1px solid #C5C5C7;
+      border-radius: 6px;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+      flex-grow: 1;
+    }
     .button-31{
       border-radius: 10px;
        width: 200px;
     }
+
+    
   }
+.show-ticker-box{
+  background-color: none;
+  border: radius 20px;;
+  -webkit-border-radius:20px;
+  -moz-border-radius:20px;
+  -ms-border-radius:20px;
+  -o-border-radius:20px;
+  .cl-div{
+    padding: 30px;
+  }
+}
+  
   .art-div{
     border: 2px solid white;
     padding: 5px;
@@ -393,12 +486,12 @@ video {
                color: white;
                }
             }
+          
   }
-  footer{
-    margin: auto;
-    color: $textcolor;
-    .footer-header{
-    text-align: center;
-    }
-  }
+
 }
+
+  
+
+
+

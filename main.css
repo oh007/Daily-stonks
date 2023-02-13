@@ -2,11 +2,14 @@
 /* import är deprecated */
 body {
   background-color: black;
+  padding: 0;
+  margin: 0;
 }
 
 h1, h2, h4 {
   font-family: "Oswald", sans-serif;
   font-weight: bold;
+  color: aliceblue;
 }
 
 p, a, li, label {
@@ -46,43 +49,41 @@ video {
   -moz-border-radius: 20px;
   -ms-border-radius: 20px;
   -o-border-radius: 20px;
+  width: auto;
+  height: auto;
 }
 
-.button-31 {
-  margin: 10px;
-  background-color: #222;
-  border-radius: 4px;
-  border-style: none;
-  box-sizing: border-box;
-  color: #fff;
-  cursor: pointer;
-  display: inline-block;
-  font-family: "Farfetch Basis", "Helvetica Neue", Arial, sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 1.5;
-  min-height: 44px;
-  min-width: 10px;
-  padding: 9px 20px 8px;
-  position: relative;
-  text-align: center;
-  text-transform: none;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  width: 100%;
+nav {
+  margin: auto;
 }
 
-.button-31:hover,
-.button-31:focus {
-  opacity: 0.75;
-  background-color: #4b4c4e;
+input {
+  margin-bottom: 10px;
 }
 
-/* Search form */
-#name {
+/* Styling Desktop */
+.blink_me {
+  animation: blinker 1s linear infinite;
+  color: aliceblue;
+  font-size: xxx-large;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+/* Search stock */
+.search-box {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Search form */
+}
+.search-box #name {
   padding: 10px 15px;
-  min-width: 55%;
+  width: 50%;
   font-size: 1rem;
   line-height: 1.5em;
   color: #373D41;
@@ -94,8 +95,34 @@ video {
   box-shadow: none;
   flex-grow: 1;
 }
-
-.search-submit {
+.search-box .button-31 {
+  margin: 10px;
+  background-color: #222;
+  border-radius: 4px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Oswald", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+  width: 25%;
+  padding: 9px 20px 8px;
+  position: relative;
+  text-align: center;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+.search-box .button-31:hover,
+.search-box .button-31:focus {
+  opacity: 0.75;
+  background-color: #4b4c4e;
+}
+.search-box .search-submit {
   background-color: #1a1a1a;
   color: #ffffff;
   font-weight: 700;
@@ -113,12 +140,56 @@ video {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
-
-.search-form .input-group {
+.search-box .search-form .input-group {
   text-align: center;
 }
 
-/* Search form end */
+/* Search stock end */
+/* News section start------------------ */
+.news-section .news-form {
+  padding-bottom: 20px;
+}
+.news-section .news-form .news-pick {
+  width: 30%;
+  font-size: x-large;
+}
+.news-section .user-news {
+  display: flex;
+  flex-direction: row;
+  overflow: scroll;
+  gap: 5%;
+}
+.news-section .user-news .article-div {
+  width: 80%;
+  border: solid aliceblue 2px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.news-section .user-news .article-div .news-img {
+  margin-top: 20px;
+  width: 300px;
+  height: 250px;
+}
+.news-section .user-news .article-div .news-para {
+  color: aliceblue;
+  font-weight: 500;
+}
+.news-section .user-news .article-div .news-title {
+  letter-spacing: 1px;
+  color: aliceblue;
+  font-weight: bold;
+}
+.news-section .user-news .article-div .news-sum-header {
+  color: aliceblue;
+  font-weight: bold;
+}
+.news-section .user-news .article-div .news-sum {
+  color: aliceblue;
+  font-weight: 100;
+  letter-spacing: 1px;
+}
+
+/* News section end------------------- */
 .main-content {
   margin: 20px;
   text-align: center;
@@ -133,44 +204,9 @@ video {
   padding: 20px;
 }
 
-.li-news {
-  color: aliceblue;
-  margin-bottom: 10px;
-}
-
-.li-news:hover {
-  background-color: lightgray;
-}
-
 .section-main {
   display: flex;
   flex-direction: column;
-}
-
-nav {
-  margin: auto;
-}
-
-.section-news .news {
-  margin: 40px;
-  border: solid white 2px;
-}
-.section-news .news-section {
-  display: flex;
-  max-width: 100%;
-  justify-content: left;
-  overflow: scroll;
-}
-.section-news .header-news {
-  color: aliceblue;
-}
-
-input {
-  margin-bottom: 10px;
-}
-
-.search-box {
-  margin: auto;
 }
 
 .art-div {
@@ -221,16 +257,6 @@ footer .footer-header {
   text-align: center;
 }
 
-.blink_me {
-  animation: blinker 1s linear infinite;
-  color: aliceblue;
-}
-
-@keyframes blinker {
-  50% {
-    opacity: 0;
-  }
-}
 .stock-div {
   color: black;
   background-color: aliceblue;
@@ -262,10 +288,37 @@ video {
 }
 
 #myBtn:hover {
-  background-color: lightgray; /* Add a dark-grey background on hover */
+  background-color: lightgray;
 }
 
+.back-to-top {
+  display: flex;
+  margin: 40px;
+  justify-content: center;
+}
+.back-to-top .top {
+  text-decoration: none;
+  padding: 10px;
+  font-family: sans-serif;
+  color: #fff;
+  background: #000;
+  border-radius: 100px;
+}
+.back-to-top .top:hover {
+  background-color: #4b4c4e;
+}
+
+footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #222222;
+}
+
+/* ------------------------------------------------------------------- */
 /* Media Query for Phone */
+/* ------------------------------------------------------------------- */
 @media only screen and (max-width: 600px) {
   div {
     text-align: center;
@@ -275,21 +328,6 @@ video {
     height: auto;
   }
   /* Search form */
-  #name {
-    /* this class is for input field, if in your code its different, just substitute the class name '.search-field' */
-    padding: 10px 15px;
-    min-width: 60%;
-    font-size: 1rem;
-    line-height: 1.5em;
-    color: #373D41;
-    background-color: #FFF;
-    background-clip: padding-box;
-    border: 1px solid #C5C5C7;
-    border-radius: 6px;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    flex-grow: 1;
-  }
   .search-submit {
     /* this class is for submit button, if in your code its different, just substitute the class name '.search-submit' */
     background-color: #1a1a1a;
@@ -318,13 +356,6 @@ video {
     margin-top: 10%;
     border: solid 2px red;
   }
-  .li-news {
-    color: aliceblue;
-    margin-bottom: 10px;
-  }
-  .li-news:hover {
-    background-color: lightgray;
-  }
   .section-main {
     display: flex;
     flex-direction: column;
@@ -333,6 +364,7 @@ video {
     margin: auto;
   }
   .main-content {
+    width: 100%;
     margin: auto;
     text-align: center;
     color: aliceblue;
@@ -344,13 +376,20 @@ video {
     display: block;
     background-color: #222;
     border: #979797 solid 2px;
+    margin-top: 20px;
   }
   .stock-div {
     padding: 10px;
-    border-radius: 6px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background: rgba(255, 255, 255, 0.16);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: aliceblue;
   }
   .stock-div #headers {
     background-color: #222;
@@ -359,21 +398,49 @@ video {
   .stock-div #headers:hover {
     background-color: #979797;
   }
-  .section-news .news-section {
-    display: block;
+  .news-section .news-form .news-pick {
+    width: 50%;
+    font-size: larger;
   }
-  .section-news .header-news {
-    color: aliceblue;
-  }
-  input {
-    margin-bottom: 10px;
+  .news-section .user-news {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
   }
   .search-box {
+    display: flex;
     margin: auto;
+  }
+  .search-box #name {
+    text-align: center;
+    padding: 10px 15px;
+    width: 80%;
+    font-size: 1rem;
+    line-height: 1.5em;
+    color: #373D41;
+    background-color: #FFF;
+    background-clip: padding-box;
+    border: 1px solid #C5C5C7;
+    border-radius: 6px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    flex-grow: 1;
   }
   .search-box .button-31 {
     border-radius: 10px;
     width: 200px;
+  }
+  .show-ticker-box {
+    background-color: none;
+    border: radius 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+  }
+  .show-ticker-box .cl-div {
+    padding: 30px;
   }
   .art-div {
     border: 2px solid white;
@@ -395,13 +462,6 @@ video {
   }
   .art-div .art-sum .art-p-sum {
     color: white;
-  }
-  footer {
-    margin: auto;
-    color: aliceblue;
-  }
-  footer .footer-header {
-    text-align: center;
   }
 }
 

@@ -11,7 +11,7 @@ async function stonk(){
     const response = await fetch(`
     https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${userInput}&apikey=${key}`);
     const data =await response.json();
-    infoDiv.className=".show-ticker-box";
+    infoDiv.className="show-ticker-box";
     infoDiv.innerHTML = ""
     
     let ticker =data.bestMatches;
@@ -27,7 +27,9 @@ async function stonk(){
         const tickerName= tickerNames[key]["2. name"]
         //
         if (matchE>0.7) {
-          contentDiv.innerHTML=`<button id="headers" onclick="getInfo()"> <br>${header}</button>${tickerName}<br> ${matchE*100}% match `;
+          let headerClick= document.getElementById("headers") as HTMLButtonElement;
+          headerClick?.addEventListener("click",getInfo);
+          contentDiv.innerHTML=`<button id="headers"> <br>${header}</button>${tickerName}<br> ${matchE*100}% match `;
           infoDiv.append(contentDiv);
         }
     }
@@ -35,13 +37,11 @@ async function stonk(){
 stonk();
 }
 
-let headerClick= document.getElementById("headers") as HTMLButtonElement;
 
-headerClick?.addEventListener("click",getInfo);
 
 /* Function 2 get closing numbers */
 function getInfo() {  
-  infoDiv.className=".show-ticker-box";
+  infoDiv.className="show-ticker-box";
   let userPress = (<HTMLElement>document.getElementById("headers")).innerText;
   infoDiv.innerHTML = ""
   async function stonkTwo(){
@@ -80,10 +80,10 @@ function getNews() {
   let title=data['feed'][`${i}`]['title'];
 
   articleDiv.innerHTML=`<img src="${newsImg}" class="news-img" alt="noice">
-  <p style="color:white">Source:${newsSrc}</p> 
-  <h4 style="color:white">${title}</h4>
-  <h6 style="color:white">News summary</h6>
-  <p style="color:white">${sum}</p>
+  <p class="news-para">Source:${newsSrc}</p> 
+  <h4 class="news-title">${title}</h4>
+  <h4 class="news-sum-header">News summary</h4>
+  <p class="news-sum">${sum}</p>
   <br>`;
   newsDiv.append(articleDiv);
  i++;
@@ -92,3 +92,4 @@ function getNews() {
   };
   news();
 }
+
