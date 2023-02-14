@@ -225,46 +225,6 @@ input {
   flex-direction: column;
 }
 
-.art-div {
-  width: 80%;
-  border: 2px solid white;
-  padding: 5px;
-  margin: 20px;
-  border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
-}
-
-.art-img {
-  width: 250px;
-  height: 250px;
-  padding: 20px;
-  border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
-}
-
-.art-para {
-  color: aliceblue;
-  font-size: small;
-}
-
-.art-title {
-  color: aliceblue;
-}
-
-.art-sum {
-  color: aliceblue;
-}
-.art-sum .art-p-sum {
-  color: white;
-  line-height: 30px;
-}
-
 footer {
   margin: auto;
   color: aliceblue;
@@ -288,19 +248,26 @@ video {
 }
 
 #myBtn {
-  display: none; /* Hidden by default */
-  position: fixed; /* Fixed/sticky position */
-  bottom: 20px; /* Place the button at the bottom of the page */
-  right: 30px; /* Place the button 30px from the right */
-  z-index: 99; /* Make sure it does not overlap */
-  border: solid white 2px; /* Remove borders */
-  outline: none; /* Remove outline */
-  background-color: black; /* Set a background color */
-  color: white; /* Text color */
-  cursor: pointer; /* Add a mouse pointer on hover */
-  padding: 15px; /* Some padding */
-  border-radius: 10px; /* Rounded corners */
-  font-size: 18px; /* Increase font size */
+  margin: 10px;
+  background-color: #222;
+  border-radius: 4px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Oswald", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+  width: 25%;
+  padding: 9px 20px 8px;
+  position: relative;
+  text-align: center;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
 }
 
 #myBtn:hover {
@@ -478,38 +445,32 @@ footer {
   .cl-div {
     padding: 30px;
   }
-  .art-div {
-    border: 2px solid white;
-    padding: 5px;
-    margin-bottom: 28px;
-  }
-  .art-div .art-img {
-    width: 50%;
-    height: 50%;
-  }
-  .art-div .art-para {
-    color: aliceblue;
-  }
-  .art-div .art-title {
-    color: aliceblue;
-  }
-  .art-div .art-sum {
-    color: aliceblue;
-  }
-  .art-div .art-sum .art-p-sum {
-    color: white;
-  }
   .back-to-top {
     display: flex;
     margin: 40px;
     justify-content: center;
   }
   .back-to-top .top {
-    text-decoration: none;
-    padding: 10px;
-    font-family: sans-serif;
+    margin: 10px;
+    background-color: #222;
+    border-radius: 4px;
+    border-style: none;
+    box-sizing: border-box;
     color: #fff;
-    background: black;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Oswald", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.5;
+    width: 25%;
+    padding: 9px 20px 8px;
+    position: relative;
+    text-align: center;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
   }
   .back-to-top .top:hover {
     background-color: lightgray;
