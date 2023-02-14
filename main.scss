@@ -149,7 +149,6 @@ input{
 
 /* News section start------------------ */
 .news-section{
-
 .news-form{
   padding-bottom: 20px;
 
@@ -158,7 +157,6 @@ input{
     font-size: x-large;
   }
 }
-
 .user-news{
 display: flex;
 flex-direction: row;
@@ -200,10 +198,7 @@ scroll-padding: 24px;
     }
 }
 }
-
 /* News section end------------------- */
-
-
 .main-content{
 margin: 20px;
   text-align: center;
@@ -236,42 +231,6 @@ margin: 20px;
   display: flex;
   flex-direction: column;
 }
-.art-div{
-  width: 80%;
-  border: 2px solid white;
-  padding: 5px;
-  margin: 20px;
-  border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
-}
-  .art-img{
-    width:250px;
-    height:250px;
-    padding: 20px;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
-}
-  .art-para{
-    color: $textcolor;
-    font-size: small;
-  }
-     .art-title{
-       color: $textcolor;
-          }
-        .art-sum{
-          color: $textcolor;
-           .art-p-sum{
-             color: white;
-             line-height: 30px;
-             }
-          }
-
 footer{
   margin: auto;
   color: $textcolor;
@@ -279,7 +238,6 @@ footer{
   text-align: center;
   }
 }
-
   .stock-div{
     color: black;
     background-color: $textcolor;
@@ -291,35 +249,17 @@ footer{
 video {
   object-fit: fill;
 }
-
-
 #myBtn {
-  display: none; /* Hidden by default */
-  position: fixed; /* Fixed/sticky position */
-  bottom: 20px; /* Place the button at the bottom of the page */
-  right: 30px; /* Place the button 30px from the right */
-  z-index: 99; /* Make sure it does not overlap */
-  border: solid white 2px; /* Remove borders */
-  outline: none; /* Remove outline */
-  background-color: $bg-color; /* Set a background color */
-  color: white; /* Text color */
-  cursor: pointer; /* Add a mouse pointer on hover */
-  padding: 15px; /* Some padding */
-  border-radius: 10px; /* Rounded corners */
-  font-size: 18px; /* Increase font size */
+  @include button() 
 }
 
 #myBtn:hover {
   background-color: $hover-color;
 }
-
-
 .back-to-top{
-
   display: flex;
   margin: 40px;
   justify-content: center;
-  
     .top {
     @include button()
     }
@@ -327,7 +267,6 @@ video {
       background-color: #4b4c4e;
     }
   }
-
 footer{
   width: 100%;
   display: flex;
@@ -335,12 +274,8 @@ footer{
   align-items: center;
   background-color: #222222;
 }
-
 /* ------------------------------------------------------------------- */
-
 /* Media Query for Phone */
-
-
 /* ------------------------------------------------------------------- */
 @media only screen and (max-width: 600px) {
   div{
@@ -358,9 +293,6 @@ footer{
     text-align:center;
   }
   /* Search form end */
-
-  
-
   .news-img{
     width: 100%;
   }
@@ -415,7 +347,6 @@ footer{
         width: 50%;
         font-size: larger;
       }
-  
     }
     .user-news{
       display: flex;
@@ -424,9 +355,6 @@ footer{
      gap: 10px;
     }
   }
-  
- 
-
   .search-box{
     display: flex;
     margin: auto;
@@ -449,8 +377,6 @@ footer{
       border-radius: 10px;
        width: 200px;
     }
-
-    
   }
 .show-ticker-box{
   display: block;
@@ -466,41 +392,12 @@ footer{
 .cl-div{
   padding: 30px;
 }
-  .art-div{
-    border: 2px solid white;
-    padding: 5px;
-    margin-bottom: 28px;
-
-    .art-img{
-      width:50%;
-      height:50%;
-    }
-    .art-para{
-      color: $textcolor;
-    }
-       .art-title{
-         color: $textcolor;
-            }
-          .art-sum{
-            color: $textcolor;
-             .art-p-sum{
-               color: white;
-               }
-            }
-          
-  }
-  .back-to-top{
-
+.back-to-top{
     display: flex;
     margin: 40px;
     justify-content: center;
-    
       .top {
-        text-decoration: none;
-        padding: 10px;
-        font-family: sans-serif;
-        color: #fff;
-        background: $bg-color;
+        @include button() 
       }
       .top:hover{
         background-color: $hover-color;
@@ -508,8 +405,3 @@ footer{
     }
 
 }
-
-  
-
-
-
