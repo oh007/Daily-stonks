@@ -36,3 +36,8 @@ This project was part of my recent course Advanced JavaScript.The purpose of the
 
 https://www.alphavantage.co/support/#api-key
 
+### Insert your API KEY here! 
+
+<img width="792" alt="Skärmavbild 2023-02-14 kl  22 26 27" src="https://user-images.githubusercontent.com/81170807/218866805-43d9bde0-62b5-48cf-a0ff-17b2fe63ddad.png">
+
+
