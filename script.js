@@ -59,7 +59,6 @@ function getInput() {
 }
 /* Function 2 get closing numbers */
 function getInfo() {
-    infoDiv.className = "show-ticker-box";
     let userPress = document.getElementById("headers").innerText;
     infoDiv.innerHTML = "";
     function stonkTwo() {

@@ -1,5 +1,3 @@
-@charset "UTF-8";
-/* import är deprecated */
 body {
   background-color: black;
   padding: 0;
@@ -156,14 +154,17 @@ input {
 .news-section .user-news {
   display: flex;
   flex-direction: row;
-  overflow: scroll;
-  gap: 5%;
+  overflow-x: scroll;
+  gap: 12px;
+  scroll-snap-type: x mandatory;
+  scroll-padding: 24px;
 }
 .news-section .user-news .article-div {
-  width: 80%;
+  flex: 0 0 50%;
   border: solid aliceblue 2px;
   padding: 20px;
   margin-bottom: 20px;
+  scroll-snap-align: start;
 }
 .news-section .user-news .article-div .news-img {
   margin-top: 20px;
@@ -198,10 +199,25 @@ input {
 .main-content .ticker-box {
   padding: 20px;
   margin-bottom: 10px;
+  background-color: lightgray;
 }
 .main-content .ticker-info {
   border: 2px solid white;
   padding: 20px;
+}
+
+.show-ticker-box {
+  display: block;
+  background-color: #222;
+  border: #979797 solid 2px;
+  margin-top: 20px;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  width: 500px;
+  margin: auto;
 }
 
 .section-main {
@@ -297,12 +313,26 @@ video {
   justify-content: center;
 }
 .back-to-top .top {
-  text-decoration: none;
-  padding: 10px;
-  font-family: sans-serif;
+  margin: 10px;
+  background-color: #222;
+  border-radius: 4px;
+  border-style: none;
+  box-sizing: border-box;
   color: #fff;
-  background: #000;
-  border-radius: 100px;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Oswald", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+  width: 25%;
+  padding: 9px 20px 8px;
+  position: relative;
+  text-align: center;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
 }
 .back-to-top .top:hover {
   background-color: #4b4c4e;
@@ -329,20 +359,26 @@ footer {
   }
   /* Search form */
   .search-submit {
-    /* this class is for submit button, if in your code its different, just substitute the class name '.search-submit' */
-    background-color: #1a1a1a;
-    color: #ffffff;
-    font-weight: 700;
-    text-decoration: none;
-    white-space: normal;
-    -webkit-transition: none;
-    transition: none;
+    margin: 10px;
+    background-color: #222;
+    border-radius: 4px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #fff;
     cursor: pointer;
-    outline: 0;
-    padding: 14px 24px 13px;
-    font-size: 1rem;
-    line-height: 1.25rem;
-    border-radius: 6px;
+    display: inline-block;
+    font-family: "Oswald", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.5;
+    width: 25%;
+    padding: 9px 20px 8px;
+    position: relative;
+    text-align: center;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
   }
   .search-form .input-group {
     text-align: center;
@@ -369,14 +405,11 @@ footer {
     text-align: center;
     color: aliceblue;
   }
+  .main-content .cl-div {
+    background-color: #4b4c4e;
+  }
   .hidden {
     display: none;
-  }
-  .show-ticker-box {
-    display: block;
-    background-color: #222;
-    border: #979797 solid 2px;
-    margin-top: 20px;
   }
   .stock-div {
     padding: 10px;
@@ -432,14 +465,17 @@ footer {
     width: 200px;
   }
   .show-ticker-box {
-    background-color: none;
-    border: radius 20px;
+    display: block;
+    background-color: #222;
+    border: #979797 solid 2px;
+    margin-top: 20px;
+    border-radius: 20px;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
     -ms-border-radius: 20px;
     -o-border-radius: 20px;
   }
-  .show-ticker-box .cl-div {
+  .cl-div {
     padding: 30px;
   }
   .art-div {
@@ -462,6 +498,21 @@ footer {
   }
   .art-div .art-sum .art-p-sum {
     color: white;
+  }
+  .back-to-top {
+    display: flex;
+    margin: 40px;
+    justify-content: center;
+  }
+  .back-to-top .top {
+    text-decoration: none;
+    padding: 10px;
+    font-family: sans-serif;
+    color: #fff;
+    background: black;
+  }
+  .back-to-top .top:hover {
+    background-color: lightgray;
   }
 }
 

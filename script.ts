@@ -1,13 +1,11 @@
 /* -----------------Insert your API:key here---------------------- */
-let key='NF4D92V4LLY53NLT';
+let key:string='';
 /* -----------------Insert your API:key here---------------------- */
  let infoDiv = document.querySelector('.display-none')as HTMLDivElement;
- 
  let element=document.querySelector(".button-search") as HTMLButtonElement;
  element.addEventListener("click", getInput);
 /* Function 2 get stock that user search on */
 function getInput() {
-
 let userInput = (<HTMLInputElement>document.getElementById("name")).value;
 if(userInput===""||null||undefined){
   infoDiv.innerHTML=`<h4>Search empty try again...</h4>`;
@@ -26,7 +24,7 @@ async function stonk(){
   else{
 
    
-    let ticker =data.bestMatches;
+    let ticker=data.bestMatches;
     let matchScore =data.bestMatches;
     let tickerNames=data.bestMatches;
 
@@ -44,7 +42,6 @@ async function stonk(){
           contentDiv.innerHTML=`<button id="headers"> <br>${header}</button>${tickerName}<br> ${matchE*100}% match `;
           infoDiv.append(contentDiv);
         }
-        /* TO-DO bygga en else if som tar noll resultat och skriver ut försök igen */
     }
   }
 }
@@ -52,12 +49,8 @@ stonk();
 }
 
 }
-
-
-
 /* Function 2 get closing numbers */
 function getInfo() {  
-  infoDiv.className="show-ticker-box";
   let userPress = (<HTMLElement>document.getElementById("headers")).innerText;
   infoDiv.innerHTML = ""
   async function stonkTwo(){
@@ -90,7 +83,7 @@ function getNews() {
  for (let i = 0; i < 51; i++) {
   let articleDiv = document.createElement('div');
   articleDiv.className="article-div";
-  let newsImg:string = data['feed'][`${i}`]['banner_image'];
+  let newsImg:string= data['feed'][`${i}`]['banner_image'];
   let newsSrc:string=data['feed'][`${i}`]['source'];
   let sum:string=data['feed'][`${i}`]['summary'];
   let title:string=data['feed'][`${i}`]['title'];
@@ -104,7 +97,6 @@ function getNews() {
   newsDiv.append(articleDiv);
  i++;
  }
- 
   };
   news();
 }
